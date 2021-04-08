@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a927f711-dd37-4305-9c83-75cc6ea87cc7" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_3_API_30" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1ftDWC2lyY7vNM0ytZT0NUbaEdH" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="dart.analysis.tool.window.force.activate" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="&lt;template&gt;" type="Applet" default="true" selected="false">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="JUnit" default="true" selected="false">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a927f711-dd37-4305-9c83-75cc6ea87cc7" name="Default" comment="" />
+      <created>1534111658247</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1534111658247</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="475" y="383" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1617826937682">
+      <screen x="0" y="0" width="1600" height="1160" />
+    </state>
+    <state x="475" y="383" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1600.1160@0.0.1600.1160" timestamp="1617826937682" />
+    <state x="480" y="314" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1617850877662">
+      <screen x="0" y="0" width="1600" height="1160" />
+    </state>
+    <state x="480" y="314" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1600.1160@0.0.1600.1160" timestamp="1617850877662" />
+    <state x="511" y="444" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1617817598891">
+      <screen x="0" y="0" width="1600" height="1160" />
+    </state>
+    <state x="511" y="444" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1600.1160@0.0.1600.1160" timestamp="1617817598891" />
+    <state x="655" y="346" key="AndroidProcessChooserDialog" timestamp="1617819631879">
+      <screen x="0" y="0" width="1600" height="1160" />
+    </state>
+    <state x="655" y="346" key="AndroidProcessChooserDialog/0.0.1600.1160@0.0.1600.1160" timestamp="1617819631879" />
+    <state width="779" height="320" key="GridCell.Tab.0.bottom" timestamp="1617847465324">
+      <screen x="0" y="0" width="1600" height="1160" />
+    </state>
+    <state width="779" height="320" key="GridCell.Tab.0.bottom/0.0.1600.1160@0.0.1600.1160" timestamp="1617847465324" />
+    <state width="779" height="320" key="GridCell.Tab.0.center" timestamp="1617847465324">
+      <screen x="0" y="0" width="1600" height="1160" />
+    </state>
+    <state width="779" height="320" key="GridCell.Tab.0.center/0.0.1600.1160@0.0.1600.1160" timestamp="1617847465324" />
+    <state width="779" height="320" key="GridCell.Tab.0.left" timestamp="1617847465323">
+      <screen x="0" y="0" width="1600" height="1160" />
+    </state>
+    <state width="779" height="320" key="GridCell.Tab.0.left/0.0.1600.1160@0.0.1600.1160" timestamp="1617847465323" />
+    <state width="779" height="320" key="GridCell.Tab.0.right" timestamp="1617847465324">
+      <screen x="0" y="0" width="1600" height="1160" />
+    </state>
+    <state width="779" height="320" key="GridCell.Tab.0.right/0.0.1600.1160@0.0.1600.1160" timestamp="1617847465324" />
+    <state width="780" height="396" key="GridCell.Tab.1.bottom" timestamp="1617820515513">
+      <screen x="0" y="0" width="1600" height="1160" />
+    </state>
+    <state width="780" height="396" key="GridCell.Tab.1.bottom/0.0.1600.1160@0.0.1600.1160" timestamp="1617820515513" />
+    <state width="780" height="396" key="GridCell.Tab.1.center" timestamp="1617820515513">
+      <screen x="0" y="0" width="1600" height="1160" />
+    </state>
+    <state width="780" height="396" key="GridCell.Tab.1.center/0.0.1600.1160@0.0.1600.1160" timestamp="1617820515513" />
+    <state width="780" height="396" key="GridCell.Tab.1.left" timestamp="1617820515512">
+      <screen x="0" y="0" width="1600" height="1160" />
+    </state>
+    <state width="780" height="396" key="GridCell.Tab.1.left/0.0.1600.1160@0.0.1600.1160" timestamp="1617820515512" />
+    <state width="780" height="396" key="GridCell.Tab.1.right" timestamp="1617820515513">
+      <screen x="0" y="0" width="1600" height="1160" />
+    </state>
+    <state width="780" height="396" key="GridCell.Tab.1.right/0.0.1600.1160@0.0.1600.1160" timestamp="1617820515513" />
+    <state x="92" y="92" width="1416" height="976" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1617817471285">
+      <screen x="0" y="0" width="1600" height="1160" />
+    </state>
+    <state x="92" y="92" width="1416" height="976" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1600.1160@0.0.1600.1160" timestamp="1617817471285" />
+    <state x="468" y="322" width="664" height="516" key="find.popup" timestamp="1617844509625">
+      <screen x="0" y="0" width="1600" height="1160" />
+    </state>
+    <state x="468" y="322" width="664" height="516" key="find.popup/0.0.1600.1160@0.0.1600.1160" timestamp="1617844509625" />
+    <state x="456" y="270" key="run.anything.popup" timestamp="1617826877470">
+      <screen x="0" y="0" width="1600" height="1160" />
+    </state>
+    <state x="456" y="270" key="run.anything.popup/0.0.1600.1160@0.0.1600.1160" timestamp="1617826877470" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/util/circular_chart/stack.dart</url>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/modes/records.dart</url>
+          <line>15</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
