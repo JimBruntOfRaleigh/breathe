@@ -6,12 +6,6 @@ import 'package:breathe/util/misc.dart';
 import 'package:breathe/util/database.dart';
 import 'package:breathe/main.dart';
 
-class ThemeModel with ChangeNotifier {
-  final ThemeMode _mode;
-  ThemeMode get mode => _mode;
-  ThemeModel(this._mode);
-}
-
 //Settings page.
 class Settings extends StatefulWidget {
   Settings(this.callback);

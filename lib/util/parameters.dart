@@ -1,4 +1,13 @@
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:breathe/main.dart';
+
+//for theme changes
+class ThemeModel with ChangeNotifier {
+  final ThemeMode _mode;
+  ThemeMode get mode => _mode;
+  ThemeModel(this._mode);
+}
 
 //parameters for the program.
 class Parameters {
@@ -50,5 +59,9 @@ class Parameters {
     displayTimerDuringHold = pref.getBool("displayTimerDuringHold") ?? true;
     dontRecordData = pref.getBool("dontRecordData") ?? false;
     dbInitialized = pref.getBool("dbInitialized") ?? false;
+
+    //update the app's dark-mode settings.
+    Breathe.darkmode_notifier.value =
+        ThemeModel(Parameters.darkModeOn ? ThemeMode.dark : ThemeMode.light);
   }
 }

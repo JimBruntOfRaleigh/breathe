@@ -6,6 +6,7 @@ import 'package:breathe/util/misc.dart';
 import 'package:breathe/util/flutter_circular_chart.dart';
 import 'package:breathe/util/database.dart';
 import 'package:breathe/util/pageViewDotIndicator.dart';
+import 'package:breathe/util/parameters.dart';
 
 class Records extends StatefulWidget {
   Records(this.callback);
@@ -368,19 +369,7 @@ class _RecordsState extends State<Records> {
                                 ],
                               ),
                             )
-                      : Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
-                              Padding(padding: EdgeInsets.only(bottom: 28.0)),
-                              Text('No Data.', style: HeaderTextStyle()),
-                              Padding(padding: EdgeInsets.only(bottom: 8.0)),
-                              Icon(Icons.assessment, size: 280.0),
-                              Padding(padding: EdgeInsets.only(bottom: 16.0)),
-                            ],
-                          ),
-                        )
+                      : Container()
                 ],
               ),
             ),
@@ -502,8 +491,7 @@ class _RecordsState extends State<Records> {
           child: DotsIndicator(
             controller: _pageViewController,
             itemCount: 3,
-            //TODO: check for Darkmode
-            color: Colors.black87,
+            color: Parameters.darkModeOn ? Colors.white : Colors.black87,
             onPageSelected: (int page) {
               _pageViewController.animateToPage(
                 page,

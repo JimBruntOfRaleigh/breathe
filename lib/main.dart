@@ -22,8 +22,8 @@ void main() => runApp(new Breathe());
 
 //App
 class Breathe extends StatelessWidget {
-  static final darkmode_notifier =
-      ValueNotifier<ThemeModel>(ThemeModel(ThemeMode.light));
+  static final darkmode_notifier = ValueNotifier<ThemeModel>(ThemeModel(ThemeMode
+      .light)); //Parameters.darkModeOn ? ThemeMode.dark : ThemeMode.light));
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -326,7 +326,6 @@ class _BreathingState extends State<Breathing>
   @override
   Widget build(BuildContext context) {
     var mode;
-
     //main menu
     //---------
     if (machine.current == mainMenu) {
