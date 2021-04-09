@@ -7,10 +7,8 @@
     <list default="true" id="a927f711-dd37-4305-9c83-75cc6ea87cc7" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/modes/records.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modes/records.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/modes/settings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modes/settings.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/util/parameters.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/util/parameters.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,9 +102,10 @@
       <screen x="0" y="0" width="1600" height="1160" />
     </state>
     <state x="511" y="444" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1600.1160@0.0.1600.1160" timestamp="1617817598891" />
-    <state x="92" y="92" width="1416" height="976" key="AVDManager" timestamp="1617854102457">
-      <screen x="0" y="0" width="1600" height="1160" />
+    <state x="88" y="65" width="1360" height="694" key="AVDManager" timestamp="1617985708500">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="88" y="65" width="1360" height="694" key="AVDManager/0.0.1536.824@0.0.1536.824" timestamp="1617985708500" />
     <state x="92" y="92" width="1416" height="976" key="AVDManager/0.0.1600.1160@0.0.1600.1160" timestamp="1617854102457" />
     <state x="655" y="346" key="AndroidProcessChooserDialog" timestamp="1617819631879">
       <screen x="0" y="0" width="1600" height="1160" />
@@ -116,21 +115,25 @@
       <screen x="0" y="0" width="1600" height="1160" />
     </state>
     <state width="578" height="466" key="DebuggerActiveHint/0.0.1600.1160@0.0.1600.1160" timestamp="1617857145830" />
-    <state width="779" height="320" key="GridCell.Tab.0.bottom" timestamp="1617857456997">
-      <screen x="0" y="0" width="1600" height="1160" />
+    <state width="746" height="209" key="GridCell.Tab.0.bottom" timestamp="1617985683268">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="746" height="209" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1617985683268" />
     <state width="779" height="320" key="GridCell.Tab.0.bottom/0.0.1600.1160@0.0.1600.1160" timestamp="1617857456997" />
-    <state width="779" height="320" key="GridCell.Tab.0.center" timestamp="1617857456997">
-      <screen x="0" y="0" width="1600" height="1160" />
+    <state width="746" height="209" key="GridCell.Tab.0.center" timestamp="1617985683267">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="746" height="209" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1617985683267" />
     <state width="779" height="320" key="GridCell.Tab.0.center/0.0.1600.1160@0.0.1600.1160" timestamp="1617857456997" />
-    <state width="779" height="320" key="GridCell.Tab.0.left" timestamp="1617857456997">
-      <screen x="0" y="0" width="1600" height="1160" />
+    <state width="746" height="209" key="GridCell.Tab.0.left" timestamp="1617985683266">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="746" height="209" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1617985683266" />
     <state width="779" height="320" key="GridCell.Tab.0.left/0.0.1600.1160@0.0.1600.1160" timestamp="1617857456997" />
-    <state width="779" height="320" key="GridCell.Tab.0.right" timestamp="1617857456997">
-      <screen x="0" y="0" width="1600" height="1160" />
+    <state width="746" height="209" key="GridCell.Tab.0.right" timestamp="1617985683267">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="746" height="209" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1617985683267" />
     <state width="779" height="320" key="GridCell.Tab.0.right/0.0.1600.1160@0.0.1600.1160" timestamp="1617857456997" />
     <state width="780" height="786" key="GridCell.Tab.1.bottom" timestamp="1617857321093">
       <screen x="0" y="0" width="1600" height="1160" />
@@ -152,10 +155,18 @@
       <screen x="0" y="0" width="1600" height="1160" />
     </state>
     <state x="92" y="92" width="1416" height="976" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1600.1160@0.0.1600.1160" timestamp="1617817471285" />
+    <state x="0" y="0" width="1229" height="572" key="dock-window-1" timestamp="1617985910673">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="0" y="0" width="1229" height="572" key="dock-window-1/0.0.1536.824@0.0.1536.824" timestamp="1617985910673" />
     <state x="468" y="322" width="664" height="520" key="find.popup" timestamp="1617855952333">
       <screen x="0" y="0" width="1600" height="1160" />
     </state>
     <state x="468" y="322" width="664" height="520" key="find.popup/0.0.1600.1160@0.0.1600.1160" timestamp="1617855952333" />
+    <state width="300" height="68" key="javadoc.popup.new" timestamp="1617985971535">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="300" height="68" key="javadoc.popup.new/0.0.1536.824@0.0.1536.824" timestamp="1617985971535" />
     <state x="456" y="270" key="run.anything.popup" timestamp="1617826877470">
       <screen x="0" y="0" width="1600" height="1160" />
     </state>

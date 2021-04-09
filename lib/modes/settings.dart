@@ -265,7 +265,6 @@ class _SettingsState extends State<Settings> {
               padding: EdgeInsets.symmetric(horizontal: 16.0),
             ),
             FlatButton(
-              //TODO: Darkmode
               color: Colors.blueAccent,
               child: Text(
                 'Cancel.',

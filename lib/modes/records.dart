@@ -243,11 +243,9 @@ class _RecordsState extends State<Records> {
         padding: const EdgeInsets.all(3.0),
         child: Material(
           borderRadius: BorderRadius.circular(12.0),
-          //TODO: check this for dark mode.
           color: Colors.black87,
           child: Icon(_daysComplete[i] ? Icons.check : Icons.block,
               size: 28.0,
-              //TODO: check for dark mode
               color: _daysComplete[i] ? Colors.white : Colors.redAccent),
         ),
       )));
@@ -349,6 +347,12 @@ class _RecordsState extends State<Records> {
                               constraints: BoxConstraints(
                                   minHeight: 400.0, maxHeight: 400.0),
                               child: CandleGraph(
+                                gridLineColor: Parameters.darkModeOn
+                                    ? Colors.white38
+                                    : Colors.black38,
+                                gridLineLabelColor: Parameters.darkModeOn
+                                    ? Colors.white
+                                    : Colors.black54,
                                 data: _holdsGraphData,
                                 enableGridLines: true,
                                 volumeProp: 0.3,
