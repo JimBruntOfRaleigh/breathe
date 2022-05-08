@@ -49,7 +49,7 @@ class Breathe extends StatelessWidget {
 
 //Root Widget
 class Breathing extends StatefulWidget {
-  Breathing({Key key}) : super(key: key);
+  Breathing({Key? key}) : super(key: key);
   @override
   _BreathingState createState() => new _BreathingState();
 }
@@ -57,31 +57,31 @@ class Breathing extends StatefulWidget {
 class _BreathingState extends State<Breathing>
     with TickerProviderStateMixin, WidgetsBindingObserver {
   //state machine for switching between 'activities' rendered as stateful widgets.
-  SM.Machine machine;
-  SM.State mainMenu;
-  SM.State settings;
-  SM.State records;
+  late SM.Machine machine;
+  SM.State? mainMenu;
+  SM.State? settings;
+  SM.State? records;
 
   //the mechanical states of the program
-  SM.State breathing;
-  SM.State deepBreath;
-  SM.State shallowBreath;
-  SM.State holdBreath;
-  SM.State recoverBreath;
+  SM.State? breathing;
+  SM.State? deepBreath;
+  SM.State? shallowBreath;
+  SM.State? holdBreath;
+  SM.State? recoverBreath;
 
   //victory screen
-  SM.State victory;
+  SM.State? victory;
 
   //how far into the exercise has the user progressed?
   int _set = 0;
   int _rep = 0;
 
   //records
-  Duration _deepInhales;
-  Duration _shallowInhales;
-  Duration _deepExhales;
-  Duration _shallowExhales;
-  List<int> _holds;
+  late Duration _deepInhales;
+  late Duration _shallowInhales;
+  late Duration _deepExhales;
+  late Duration _shallowExhales;
+  late List<int> _holds;
 
   //did the user want to quit the session?
   bool _askedToQuit = false;
@@ -122,7 +122,7 @@ class _BreathingState extends State<Breathing>
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addObserver(this);
+    WidgetsBinding.instance!.addObserver(this);
 
     //setup local storage & load parameters.
     Parameters.load();
@@ -136,7 +136,7 @@ class _BreathingState extends State<Breathing>
           .then((db) => Parameters.save());
 
     //Data for this session.
-    _holds = List<int>();
+    _holds = List<int>.empty(growable: true);
     _deepInhales = Duration();
     _shallowInhales = Duration();
     _deepExhales = Duration();
@@ -157,23 +157,23 @@ class _BreathingState extends State<Breathing>
     recoverBreath = machine.newState('recover');
     victory = machine.newState('victory');
 
-    mainMenu.onEntry(enterMainMenu);
-    settings.onEntry(enterSettings);
-    records.onEntry(enterRecords);
+    mainMenu!.onEntry(enterMainMenu);
+    settings!.onEntry(enterSettings);
+    records!.onEntry(enterRecords);
 
-    breathing.onEntry(enterBreathing);
-    deepBreath.onEntry(enterDeepBreath);
-    shallowBreath.onEntry(enterShallowBreath);
-    holdBreath.onEntry(enterHoldBreath);
-    recoverBreath.onEntry(enterRecoverBreath);
-    victory.onEntry(enterVictory);
+    breathing!.onEntry(enterBreathing);
+    deepBreath!.onEntry(enterDeepBreath);
+    shallowBreath!.onEntry(enterShallowBreath);
+    holdBreath!.onEntry(enterHoldBreath);
+    recoverBreath!.onEntry(enterRecoverBreath);
+    victory!.onEntry(enterVictory);
 
     machine.start();
   }
 
   @override
   void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
+    WidgetsBinding.instance!.removeObserver(this);
     super.dispose();
   }
 
@@ -188,14 +188,14 @@ class _BreathingState extends State<Breathing>
   void exitSettings() {
     setState(() {
       Parameters.save();
-      mainMenu.enter();
+      mainMenu!.enter();
     });
   }
 
   void enterRecords() {}
   void exitRecords() {
     setState(() {
-      mainMenu.enter();
+      mainMenu!.enter();
     });
   }
 
@@ -204,9 +204,9 @@ class _BreathingState extends State<Breathing>
       _reset();
       stopwatch.start();
       if (Parameters.deepBreathsOn && Parameters.deepBreathsFirst)
-        deepBreath.enter();
+        deepBreath!.enter();
       else
-        shallowBreath.enter();
+        shallowBreath!.enter();
     });
   }
 
@@ -219,7 +219,7 @@ class _BreathingState extends State<Breathing>
         _shallowInhales += _in;
         _shallowExhales += _out;
       }
-      holdBreath.enter();
+      holdBreath!.enter();
     });
   }
 
@@ -230,7 +230,7 @@ class _BreathingState extends State<Breathing>
         _deepInhales += _in;
         _deepExhales += _out;
       }
-      shallowBreath.enter();
+      shallowBreath!.enter();
     });
   }
 
@@ -238,7 +238,7 @@ class _BreathingState extends State<Breathing>
   void exitHoldBreath(int ms) {
     setState(() {
       if (!Parameters.dontRecordData) _holds.add(ms);
-      recoverBreath.enter();
+      recoverBreath!.enter();
     });
   }
 
@@ -252,11 +252,11 @@ class _BreathingState extends State<Breathing>
       }
 
       if (_set >= Parameters.sets) {
-        victory.enter();
+        victory!.enter();
       } else if (_rep == 0 && Parameters.deepBreathsOn)
-        deepBreath.enter();
+        deepBreath!.enter();
       else
-        shallowBreath.enter();
+        shallowBreath!.enter();
     });
   }
 
@@ -268,7 +268,7 @@ class _BreathingState extends State<Breathing>
 
   void exitVictory() {
     setState(() {
-      mainMenu.enter();
+      mainMenu!.enter();
     });
   }
 
@@ -289,7 +289,7 @@ class _BreathingState extends State<Breathing>
           if (machine.current == mainMenu)
             exit(0);
           else
-            mainMenu.enter();
+            mainMenu!.enter();
         });
       else {
         //ask the user if they want to quit & handle time-out.
@@ -300,7 +300,7 @@ class _BreathingState extends State<Breathing>
               _askedToQuit = false;
             });
           });
-          _key.currentState.showSnackBar(new SnackBar(
+          _key.currentState!.showSnackBar(new SnackBar(
             content: new Text((machine.current == mainMenu)
                 ? "Press back again to exit the application."
                 : "Press back again to quit."),
@@ -317,10 +317,11 @@ class _BreathingState extends State<Breathing>
     else if (machine.current == settings || machine.current == records)
       setState(() {
         _askedToQuit = false;
-        mainMenu.enter();
+        mainMenu!.enter();
       });
 
     //anything else, we ignore.
+    return Future.value(false);
   }
 
   @override
@@ -345,7 +346,7 @@ class _BreathingState extends State<Breathing>
                 text: "BEGIN",
                 style: BeginMenuItemTextStyle(),
                 callback: () => setState(() {
-                  breathing.enter();
+                  breathing!.enter();
                 }),
               ),
             ),
@@ -354,7 +355,7 @@ class _BreathingState extends State<Breathing>
               text: "RECORDS",
               style: RecordsMenuItemTextStyle(),
               callback: () => setState(() {
-                records.enter();
+                records!.enter();
               }),
             )),
             Expanded(
@@ -362,7 +363,7 @@ class _BreathingState extends State<Breathing>
               text: "SETTINGS",
               style: SettingsMenuItemTextStyle(),
               callback: () => setState(() {
-                settings.enter();
+                settings!.enter();
               }),
             )),
           ],
@@ -403,8 +404,8 @@ class _BreathingState extends State<Breathing>
 //For the main menu.
 class MenuButton extends StatelessWidget {
   MenuButton({this.text, this.callback, this.style});
-  final String text;
-  final TextStyle style;
+  final String? text;
+  final TextStyle? style;
 //  final Icon icon;
   final callback;
 
@@ -417,7 +418,7 @@ class MenuButton extends StatelessWidget {
           padding: EdgeInsets.all(5.0),
           child: Center(
             child: Text(
-              text,
+              text!,
               textAlign: TextAlign.center,
               style: style,
             ),

@@ -10,8 +10,8 @@ import 'package:flutter/material.dart';
 
 class CandleGraph extends StatelessWidget {
   CandleGraph({
-    Key key,
-    @required this.data,
+    Key? key,
+    required this.data,
     this.lineWidth = 1.0,
     this.fallbackHeight = 100.0,
     this.fallbackWidth = 300.0,
@@ -20,8 +20,8 @@ class CandleGraph extends StatelessWidget {
     this.gridLineWidth = 0.5,
     this.gridLineLabelColor = Colors.black54,
     this.labelPostfix = "",
-    @required this.enableGridLines,
-    @required this.volumeProp,
+    required this.enableGridLines,
+    required this.volumeProp,
   })  : assert(data != null),
         assert(lineWidth != null),
         super(key: key);
@@ -83,14 +83,14 @@ class CandleGraph extends StatelessWidget {
 class _CandleGraphPainter extends CustomPainter {
   _CandleGraphPainter(
     this.data, {
-    @required this.lineWidth,
-    @required this.enableGridLines,
-    @required this.gridLineColor,
-    @required this.gridLineAmount,
-    @required this.gridLineWidth,
-    @required this.gridLineLabelColor,
-    @required this.volumeProp,
-    @required this.labelPostfix,
+    required this.lineWidth,
+    required this.enableGridLines,
+    required this.gridLineColor,
+    required this.gridLineAmount,
+    required this.gridLineWidth,
+    required this.gridLineLabelColor,
+    required this.volumeProp,
+    required this.labelPostfix,
   });
 
   final List data;
@@ -105,12 +105,12 @@ class _CandleGraphPainter extends CustomPainter {
 
   final double volumeProp;
 
-  double _min;
-  double _max;
-  double _maxVolume;
+  double? _min;
+  double? _max;
+  double? _maxVolume;
 
   List<TextPainter> gridLineTextPainters = [];
-  TextPainter maxVolumePainter;
+  late TextPainter maxVolumePainter;
 
   numCommaParse(number) {
     return number.round().toString().replaceAllMapped(
@@ -137,7 +137,7 @@ class _CandleGraphPainter extends CustomPainter {
       double gridLineValue;
       for (int i = 0; i < gridLineAmount; i++) {
         // Label grid lines
-        gridLineValue = _max - (((_max - _min) / (gridLineAmount - 1)) * i);
+        gridLineValue = _max! - (((_max! - _min!) / (gridLineAmount - 1)) * i);
         Duration gridLineDuration =
             Duration(milliseconds: gridLineValue.floor());
         String gridLineText = gridLineDuration.toString().substring(2, 7);
@@ -154,7 +154,7 @@ class _CandleGraphPainter extends CustomPainter {
       }
 
       // Label volume line
-      Duration maxVolumeDuration = Duration(milliseconds: _maxVolume.floor());
+      Duration maxVolumeDuration = Duration(milliseconds: _maxVolume!.floor());
       maxVolumePainter = new TextPainter(
           text: new TextSpan(
               text: "+" +
@@ -176,13 +176,13 @@ class _CandleGraphPainter extends CustomPainter {
     }
 
     final double volumeHeight = size.height * volumeProp;
-    final double volumeNormalizer = volumeHeight / _maxVolume;
+    final double volumeNormalizer = volumeHeight / _maxVolume!;
 
     double width = size.width;
     if (enableGridLines) width = size.width - 36.0;
 
     final double height = size.height * (1 - volumeProp);
-    final double heightNormalizer = height / (_max - _min);
+    final double heightNormalizer = height / (_max! - _min!);
     final double rectWidth = width / data.length;
 
     double rectLeft;
@@ -286,7 +286,7 @@ class _CandleGraphPainter extends CustomPainter {
         ..strokeWidth = 0.5;
 
       double gridLineDist = height / (gridLineAmount - 1);
-      double gridLineY;
+      late double gridLineY;
 
       // Draw grid lines
       for (int i = 0; i < gridLineAmount; i++) {

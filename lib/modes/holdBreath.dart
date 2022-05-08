@@ -7,7 +7,7 @@ class HoldBreath extends StatefulWidget {
   HoldBreath(_callback) {
     callback = _callback;
   }
-  var callback;
+  late var callback;
 
   @override
   _HoldBreathState createState() => _HoldBreathState();

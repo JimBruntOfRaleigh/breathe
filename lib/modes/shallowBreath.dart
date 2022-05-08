@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:breathe/util/circle.dart';
 import 'package:breathe/util/parameters.dart';
@@ -8,7 +9,7 @@ class ShallowBreath extends StatefulWidget {
   ShallowBreath(_callback) {
     callback = _callback;
   }
-  var callback;
+  late var callback;
 
   @override
   _ShallowBreathState createState() => _ShallowBreathState();
@@ -17,8 +18,8 @@ class ShallowBreath extends StatefulWidget {
 class _ShallowBreathState extends State<ShallowBreath>
     with TickerProviderStateMixin {
   //for animation
-  AnimationController _animationController;
-  CircleTween _tween;
+  late AnimationController _animationController;
+  late CircleTween _tween;
 
   String _header = "Shallow Breaths.";
   String _subtitle = "";
@@ -69,7 +70,7 @@ class _ShallowBreathState extends State<ShallowBreath>
         onTapUp: _exhale,
         //Very important! Sometimes a onTapUp is a onTapCancel.
         onTapCancel: () {
-          _exhale(TapUpDetails());
+          _exhale(TapUpDetails(kind: PointerDeviceKind.touch));
         },
         child: Center(
             child: Column(children: <Widget>[

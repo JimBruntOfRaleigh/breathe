@@ -1,5 +1,5 @@
 class Local {
-  static String _locale;
+  static String? _locale;
   static Map<String, Map<String, String>> _localizedValues = {
     'en': {
       'title': 'Hello World',
@@ -11,7 +11,7 @@ class Local {
 
   //TODO: AESTHETICS: do we really need string localization here?
   //etc...
-  String get title {
-    return _localizedValues[_locale]['title'];
+  String? get title {
+    return _localizedValues[_locale!]!['title'];
   }
 }

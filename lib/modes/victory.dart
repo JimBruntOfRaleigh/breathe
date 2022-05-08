@@ -13,7 +13,7 @@ class Victory extends StatefulWidget {
 }
 
 class _VictoryState extends State<Victory> {
-  List _sessionData = List();
+  List _sessionData = List.empty(growable: true);
 
   @override
   void initState() {

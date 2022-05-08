@@ -18,7 +18,7 @@ class Records extends StatefulWidget {
 class _RecordsState extends State<Records> {
   //TODO: TESTING: move these to the test class...
   bool _debugging = false;
-  bool _debugDaysOne() {
+  /*bool _debugDaysOne() {
     final today = Today();
     List<Day> _dbDays = List<Day>();
     List<Hold> _dbHolds = List<Hold>();
@@ -54,7 +54,6 @@ class _RecordsState extends State<Records> {
     _holds = List<Hold>.from(_dbHolds);
     return true;
   }
-
   bool _debugDaysTwo() {
     final today = Today();
     List<Day> _dbDays = List<Day>();
@@ -92,11 +91,12 @@ class _RecordsState extends State<Records> {
     _holds = List<Hold>.from(_dbHolds);
     return true;
   }
-
+*/
+  
   bool _active = false;
   bool _loaded = false;
-  List<Day> _days = List<Day>();
-  List<Hold> _holds = List<Hold>();
+  List<Day> _days = List<Day>.empty(growable: true);
+  List<Hold> _holds = List<Hold>.empty(growable: true);
 
   //for switching between different records screens
   final _pageViewController = PageController();
@@ -105,18 +105,18 @@ class _RecordsState extends State<Records> {
 
   //setup candle chart for breath holds.
   //------------------------------------
-  List _holdsGraphData = List();
+  List _holdsGraphData = List.empty(growable: true);
   void _generateHoldGraphData() {
     //holds for every day, from the first day to the last.
-    _holdsGraphData = List.filled(_days.last.day - _days.first.day + 1,
+    _holdsGraphData = List.filled(_days.last.day! - _days.first.day! + 1,
         {"open": 0, "high": 0, "low": 0, "close": 0, "volumeto": 0});
 
     //first we find opens, highs, lows, and closes.
     //holds are sorted by holdIDS.
-    int day = _holds.first.day;
+    int? day = _holds.first.day;
     int open = -1;
     int high = -1;
-    int low = pow(2, 52);
+    int low = pow(2, 52) as int;
     int close = -1;
     int volume = 0;
 
@@ -133,12 +133,12 @@ class _RecordsState extends State<Records> {
             close == -1) //&& i > 0) implicit.
           //for days when the user didn't interact, we just write
           //no movement on the chart and nothing added to the volume to breaths.
-          _holdsGraphData[day - _holds.first.day] = {
-            "open": _holdsGraphData[day - _holds.first.day - 1]["open"],
-            "close": _holdsGraphData[day - _holds.first.day - 1]["open"],
-            "high": _holdsGraphData[day - _holds.first.day - 1]["open"],
-            "low": _holdsGraphData[day - _holds.first.day - 1]["open"],
-            "volumeto": _holdsGraphData[day - _holds.first.day - 1]["volumeto"]
+          _holdsGraphData[day! - _holds.first.day!] = {
+            "open": _holdsGraphData[day - _holds.first.day! - 1]["open"],
+            "close": _holdsGraphData[day - _holds.first.day! - 1]["open"],
+            "high": _holdsGraphData[day - _holds.first.day! - 1]["open"],
+            "low": _holdsGraphData[day - _holds.first.day! - 1]["open"],
+            "volumeto": _holdsGraphData[day - _holds.first.day! - 1]["volumeto"]
           };
 
         //otherwise, record the hold normally.
@@ -147,7 +147,7 @@ class _RecordsState extends State<Records> {
         })]
             .totalHoldTime
             .inMilliseconds;
-        _holdsGraphData[day - _holds.first.day] = {
+        _holdsGraphData[day! - _holds.first.day!] = {
           "open": open,
           "high": high,
           "low": low,
@@ -157,7 +157,7 @@ class _RecordsState extends State<Records> {
         //and reset.
         open = -1;
         high = -1;
-        low = pow(2, 52);
+        low = pow(2, 52) as int;
         close = -1;
         day = _holds[i].day;
       }
@@ -177,7 +177,7 @@ class _RecordsState extends State<Records> {
         .totalHoldTime
         .inMilliseconds;
 
-    _holdsGraphData[day - _holds.first.day] = {
+    _holdsGraphData[day! - _holds.first.day!] = {
       "open": open,
       "high": high,
       "low": low,
@@ -191,7 +191,7 @@ class _RecordsState extends State<Records> {
   final GlobalKey<AnimatedCircularChartState> _pieChartKey =
       GlobalKey<AnimatedCircularChartState>();
   num fraction = 0.0;
-  List<CircularStackEntry> _pieChartSlices = List<CircularStackEntry>();
+  List<CircularStackEntry> _pieChartSlices = List<CircularStackEntry>.empty(growable: true);
   void _generateRatioData() {
     //TODO: MECHANICS: introduce timeframes here. We'll all all-time (1yr) for now.
     num deepIn = 0.0;
@@ -210,11 +210,11 @@ class _RecordsState extends State<Records> {
       CircularStackEntry(
         <CircularSegmentEntry>[
 //           CircularSegmentEntry(deepIn, Colors.red, rankKey: 'Deep Inhales'),
-          CircularSegmentEntry(shallowIn, Colors.red,
+          CircularSegmentEntry(shallowIn as double, Colors.red,
               rankKey: 'Shallow Inhales'),
 //           CircularSegmentEntry(deepOut, Colors.blue,
 //              rankKey: 'Deep Exhales'),
-          CircularSegmentEntry(shallowOut, Colors.blue,
+          CircularSegmentEntry(shallowOut as double, Colors.blue,
               rankKey: 'Shallow Exhales'),
         ],
         rankKey: 'Breath Types',
@@ -232,7 +232,7 @@ class _RecordsState extends State<Records> {
     int today = Today();
     //only look at the last 7 weeks.
     if (today - day.day > 48 || today - day.day < 0) return;
-    _daysComplete[48 - (today - day.day)] = true;
+    _daysComplete[48 - (today - day.day as int)] = true;
   }
 
   List<Widget> _dayGridTiles() {
@@ -264,8 +264,8 @@ class _RecordsState extends State<Records> {
   //load data.
   Future<bool> _load() async {
     BreathDatabase db = BreathDatabase();
-    _days = await db.getDays();
-    _holds = await db.getHolds();
+    _days = await (db.getDays() as FutureOr<List<Day>>);
+    _holds = await (db.getHolds() as FutureOr<List<Hold>>);
     if (_days.length == 0 || _holds.length == 0) {
       return false;
     }

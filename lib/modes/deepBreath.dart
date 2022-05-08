@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:breathe/util/circle.dart';
 import 'package:breathe/util/misc.dart';
@@ -7,15 +8,15 @@ class DeepBreath extends StatefulWidget {
   DeepBreath(_callback) {
     callback = _callback;
   }
-  var callback;
+  late var callback;
 
   @override
   _DeepBreathState createState() => _DeepBreathState();
 }
 
 class _DeepBreathState extends State<DeepBreath> with TickerProviderStateMixin {
-  AnimationController _animationController;
-  CircleTween _tween;
+  late AnimationController _animationController;
+  late CircleTween _tween;
 
   String _header = "Deep Breaths.";
   String _subtitle = "Tap and hold to begin your inhale.\nRelease to exhale.";
@@ -58,7 +59,7 @@ class _DeepBreathState extends State<DeepBreath> with TickerProviderStateMixin {
         onTapDown: _inhale,
         onTapUp: _exhale,
         onTapCancel: () {
-          _exhale(TapUpDetails());
+          _exhale(TapUpDetails(kind: PointerDeviceKind.touch));
         },
         child: Center(
           child: Column(children: <Widget>[

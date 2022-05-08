@@ -10,24 +10,24 @@ import 'dart:io';
 class Day {
   Day();
 
-  int day;
+  int? day;
 
-  int breaths;
-  int deepBreaths;
-  int shallowBreaths;
-  int recoveries; //number of recovery inhales, holds, and exhales
+  int? breaths;
+  int? deepBreaths;
+  int? shallowBreaths;
+  int? recoveries; //number of recovery inhales, holds, and exhales
 
-  Duration deepInhaleTime;
-  Duration deepExhaleTime;
-  Duration shallowInhaleTime;
-  Duration shallowExhaleTime;
-  Duration totalHoldTime;
+  late Duration deepInhaleTime;
+  late Duration deepExhaleTime;
+  late Duration shallowInhaleTime;
+  late Duration shallowExhaleTime;
+  late Duration totalHoldTime;
 
   Day.fromMap(Map map) {
     day = map["DAYID"];
     deepBreaths = map["DEEPBREATHS"];
     shallowBreaths = map["SHALLOWBREATHS"];
-    breaths = deepBreaths + shallowBreaths;
+    breaths = deepBreaths! + shallowBreaths!;
     recoveries = map["RECOVERYBREATHS"];
 
     deepInhaleTime = Duration(milliseconds: map["DEEPINHALETIME"]);
@@ -40,8 +40,8 @@ class Day {
 
 class Hold {
   Hold();
-  int day;
-  Duration duration;
+  int? day;
+  late Duration duration;
 
   Hold.fromMap(Map map) {
     day = map["DAYID"];
@@ -55,9 +55,9 @@ class BreathDatabase {
 
   factory BreathDatabase() => _instance; //allows for multiple instances.
 
-  static Database _db;
+  static Database? _db;
 
-  Future<Database> get db async {
+  Future<Database?> get db async {
     if (_db != null) {
       return _db;
     }
@@ -101,7 +101,7 @@ class BreathDatabase {
   }
 
   Future closeDB() async {
-    var dbClient = await db;
+    var dbClient = await (db as FutureOr<Database>);
     dbClient.close();
   }
 
@@ -110,7 +110,7 @@ class BreathDatabase {
   Future<List> getDays() async {
     int today = Today();
     int yearAgo = today - 365;
-    var dbClient = await db;
+    var dbClient = await (db as FutureOr<Database>);
     List<Map> res = await dbClient.query("DAYS",
         where: "DAYID <= ? AND DAYID >= ?",
         whereArgs: [today, yearAgo],
@@ -121,7 +121,7 @@ class BreathDatabase {
   Future<List> getHolds() async {
     int today = Today();
     int yearAgo = today - 365;
-    var dbClient = await db;
+    var dbClient = await (db as FutureOr<Database>);
     List<Map> res = await dbClient.query("HOLDS",
         where: "DAYID <= ? AND DAYID >= ?",
         whereArgs: [today, yearAgo],
@@ -140,7 +140,7 @@ class BreathDatabase {
       int shallowExhaleTime,
       int recoveryBreaths,
       List<int> holds) async {
-    var dbClient = await db;
+    var dbClient = await (db as FutureOr<Database>);
     //verify or create.
     int today = Today();
     List<Map> q =
@@ -207,7 +207,7 @@ class BreathDatabase {
   //DELETE
   //-----
   Future<int> deleteDatabase() async {
-    var dbClient = await db;
+    var dbClient = await (db as FutureOr<Database>);
     var res = await dbClient.delete("DAYS");
     res = await dbClient.delete("HOLDS");
     return res;

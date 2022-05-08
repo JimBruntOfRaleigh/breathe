@@ -8,7 +8,7 @@ class RecoverBreath extends StatefulWidget {
   RecoverBreath(_callback) {
     callback = _callback;
   }
-  var callback;
+  late var callback;
 
   @override
   _RecoverBreathState createState() => _RecoverBreathState();
@@ -17,8 +17,8 @@ class RecoverBreath extends StatefulWidget {
 //these is no input here, this is just a 'cutscene'.
 class _RecoverBreathState extends State<RecoverBreath>
     with TickerProviderStateMixin {
-  AnimationController _animationController;
-  CircleTween _tween;
+  late AnimationController _animationController;
+  late CircleTween _tween;
 
   String _header = "Inhale.";
   String _subtitle = "";

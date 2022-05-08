@@ -348,13 +348,13 @@ class SettingsOption extends StatefulWidget {
       this.callback,
       this.numerical});
 
-  final String name;
-  final String description;
+  final String? name;
+  final String? description;
   var value; //reference to the parameter.
-  final int min;
-  final int max;
+  final int? min;
+  final int? max;
   final callback;
-  final bool numerical;
+  final bool? numerical;
 
   @override
   _SettingsOptionState createState() => _SettingsOptionState();
@@ -386,12 +386,12 @@ class _SettingsOptionState extends State<SettingsOption> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        widget.name,
+                        widget.name!,
                         style: SubtitleTextStyle(),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text(widget.description,
+                        child: Text(widget.description!,
                             style: DescriptionTextStyle()),
                       ),
                     ],
@@ -400,11 +400,11 @@ class _SettingsOptionState extends State<SettingsOption> {
               ),
               Expanded(
                 flex: 1,
-                child: widget.numerical
-                    ? NumberPicker.integer(
-                        initialValue: widget.value,
-                        minValue: widget.min,
-                        maxValue: widget.max,
+                child: widget.numerical!
+                    ? NumberPicker(
+                        value: widget.value,
+                        minValue: widget.min!,
+                        maxValue: widget.max!,
                         onChanged: onChange,
                       )
                     : Checkbox(value: widget.value, onChanged: onChange),
