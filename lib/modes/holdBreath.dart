@@ -41,7 +41,7 @@ class _HoldBreathState extends State<HoldBreath> {
           flex: 1,
           child: Column(
             children: <Widget>[
-              Divider(height: 48.0, color: Colors.transparent),
+              Divider(height: 31.0, color: Colors.transparent),
               Text(
                 _header,
                 style: HeaderTextStyle(),

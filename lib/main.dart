@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -38,9 +39,12 @@ class Breathe extends StatelessWidget {
           final mode = model.mode;
           return new MaterialApp(
             title: 'Breathe.',
-            theme: ThemeData.light(), // Provide light theme.
-            darkTheme: ThemeData.dark(), // Provide dark theme.
-            themeMode: mode, // Decides which theme to show.
+            theme: ThemeData.light(),
+            // Provide light theme.
+            darkTheme: ThemeData.dark(),
+            // Provide dark theme.
+            themeMode: mode,
+            // Decides which theme to show.
             home: Breathing(),
           );
         });
@@ -50,6 +54,7 @@ class Breathe extends StatelessWidget {
 //Root Widget
 class Breathing extends StatefulWidget {
   Breathing({Key? key}) : super(key: key);
+
   @override
   _BreathingState createState() => new _BreathingState();
 }
@@ -182,9 +187,11 @@ class _BreathingState extends State<Breathing>
   //we're using onEntry for when states start and
   // exitState as a callback to prompt state transition by this widget.
   void enterMainMenu() {}
+
   void exitMainMenu() {}
 
   void enterSettings() {}
+
   void exitSettings() {
     setState(() {
       Parameters.save();
@@ -193,6 +200,7 @@ class _BreathingState extends State<Breathing>
   }
 
   void enterRecords() {}
+
   void exitRecords() {
     setState(() {
       mainMenu!.enter();
@@ -213,6 +221,7 @@ class _BreathingState extends State<Breathing>
   void exitBreathing() {}
 
   void enterShallowBreath() {}
+
   void exitShallowBreath(Duration _in, Duration _out) {
     setState(() {
       if (!Parameters.dontRecordData) {
@@ -224,6 +233,7 @@ class _BreathingState extends State<Breathing>
   }
 
   void enterDeepBreath() {}
+
   void exitDeepBreath(Duration _in, Duration _out) {
     setState(() {
       if (!Parameters.dontRecordData) {
@@ -235,6 +245,7 @@ class _BreathingState extends State<Breathing>
   }
 
   void enterHoldBreath() {}
+
   void exitHoldBreath(int ms) {
     setState(() {
       if (!Parameters.dontRecordData) _holds.add(ms);
@@ -243,6 +254,7 @@ class _BreathingState extends State<Breathing>
   }
 
   void enterRecoverBreath() {}
+
   void exitRecoverBreath() {
     setState(() {
       _rep++;
@@ -339,7 +351,9 @@ class _BreathingState extends State<Breathing>
                 flex: 2,
                 child: Container(
                   alignment: Alignment.center,
-                  child: Text("BREATHE", style: LogoTextStyle()),
+                  child: SafeArea(
+                      child: AutoSizeText("BREATHE",
+                          style: LogoTextStyle(), maxLines: 1)),
                 )),
             Expanded(
               child: MenuButton(
@@ -404,8 +418,10 @@ class _BreathingState extends State<Breathing>
 //For the main menu.
 class MenuButton extends StatelessWidget {
   MenuButton({this.text, this.callback, this.style});
+
   final String? text;
   final TextStyle? style;
+
 //  final Icon icon;
   final callback;
 

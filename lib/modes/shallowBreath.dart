@@ -75,21 +75,23 @@ class _ShallowBreathState extends State<ShallowBreath>
         child: Center(
             child: Column(children: <Widget>[
           Expanded(
-              child: Column(
+              child: SafeArea(
+                child: Column(
             children: <Widget>[
-              Divider(
-                height: 46.0,
-                color: Colors.transparent,
-              ),
-              Text(_header,
-                  textAlign: TextAlign.center, style: HeaderTextStyle()),
-              Text(
-                _subtitle,
-                textAlign: TextAlign.center,
-                style: SubtitleTextStyle(),
-              )
+                Divider(
+                  height: 15.0,
+                  color: Colors.transparent,
+                ),
+                Text(_header,
+                    textAlign: TextAlign.center, style: HeaderTextStyle()),
+                Text(
+                  _subtitle,
+                  textAlign: TextAlign.center,
+                  style: SubtitleTextStyle(),
+                )
             ],
-          )),
+          ),
+              )),
           Expanded(
             flex: 3,
             child: _circleInvisible

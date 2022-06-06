@@ -23,6 +23,7 @@ dependencies:
 
   #UX
   numberpicker: ^2.1.1
+  auto_size_text: ^3.0.0
  # flutter_candlesticks: ^0.0.9 - obscelete. Needed to retrofit.
  # flutter_circular_chart: ^0.1.0 - obscelete. Needed to retrofit.
 

@@ -1,5 +1,6 @@
 // Stopwatch display from
 // https://github.com/bizz84/stopwatch-flutter
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:breathe/util/misc.dart';
 import 'dart:async';
@@ -142,7 +143,7 @@ class MinutesAndSecondsState extends State<MinutesAndSeconds> {
   Widget build(BuildContext context) {
     String minutesStr = (minutes! % 60).toString().padLeft(2, '0');
     String secondsStr = (seconds! % 60).toString().padLeft(2, '0');
-    return new Text('$minutesStr:$secondsStr.', style: dependencies!.textStyle);
+    return new AutoSizeText('$minutesStr:$secondsStr.', maxFontSize: 40.0, style: dependencies!.textStyle);
   }
 }
 
@@ -176,6 +177,6 @@ class HundredsState extends State<Hundreds> {
   @override
   Widget build(BuildContext context) {
     String hundredsStr = (hundreds! % 100).toString().padLeft(2, '0');
-    return new Text(hundredsStr, style: dependencies!.textStyle);
+    return new AutoSizeText(hundredsStr, maxFontSize: 40.0, style: dependencies!.textStyle);
   }
 }

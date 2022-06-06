@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:breathe/util/circle.dart';
@@ -19,7 +20,7 @@ class _DeepBreathState extends State<DeepBreath> with TickerProviderStateMixin {
   late CircleTween _tween;
 
   String _header = "Deep Breaths.";
-  String _subtitle = "Tap and hold to begin your inhale.\nRelease to exhale.";
+  String _subtitle = "Tap and hold to begin your inhale. Release to exhale.";
 
   //how long did each in-and-out take?
   Stopwatch _watch = Stopwatch();
@@ -64,23 +65,26 @@ class _DeepBreathState extends State<DeepBreath> with TickerProviderStateMixin {
         child: Center(
           child: Column(children: <Widget>[
             Expanded(
-                child: Column(
+                child: SafeArea(
+                  child: Column(
               children: <Widget>[
-                Divider(
-                  height: 46.0,
-                  color: Colors.transparent,
-                ),
-                Text(
-                  _header,
-                  style: HeaderTextStyle(),
-                ),
-                Text(
-                  _subtitle,
-                  textAlign: TextAlign.center,
-                  style: SubtitleTextStyle(),
-                )
+                  Divider(
+                    height: 32.0,
+                    color: Colors.transparent,
+                  ),
+                  AutoSizeText(
+                    _header,
+                    style: HeaderTextStyle(),
+                  ),
+                  AutoSizeText(
+                    _subtitle,
+                    maxLines: 5,
+                    textAlign: TextAlign.center,
+                    style: SubtitleTextStyle(),
+                  )
               ],
-            )),
+            ),
+                )),
             Expanded(
               flex: 3,
               child: _circleInvisible
